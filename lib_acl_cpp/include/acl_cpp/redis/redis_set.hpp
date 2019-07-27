@@ -66,11 +66,9 @@ public:
 	 *  the key of the set
 	 * @param buf {string&} 存储被移除的成员
 	 *  store the member removed from the set
-	 * @return {bool} 当 key 不存在或 key 是空集时返回 false
-	 *  true if one member has been removed and got, false if the key
-	 *  doesn't exist or it isn't a set stored at the key.
+	 * @return {int} 当 key 不为空时，返回元素的长度[0, n]，出错时，返回-1
 	 */
-	bool spop(const char* key, string& buf);
+	int spop(const char* key, string& buf);
 
 	/**
 	 * 获得集合对象中成员的数量

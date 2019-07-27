@@ -78,7 +78,7 @@ int redis_set::sadd(const char* key, const char* argv[],
 	return get_number();
 }
 
-bool redis_set::spop(const char* key, string& buf)
+int redis_set::spop(const char* key, string& buf)
 {
 	const char* argv[2];
 	size_t lens[2];
@@ -90,7 +90,7 @@ bool redis_set::spop(const char* key, string& buf)
 
 	hash_slot(key);
 	build_request(2, argv, lens);
-	return get_string(buf) < 0 ? false : true;
+	return get_string(buf);
 }
 
 int redis_set::scard(const char* key)
